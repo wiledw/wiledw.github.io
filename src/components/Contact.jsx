@@ -30,7 +30,8 @@ const Contact = () => {
     e.preventDefault();
     setLoading(true);
 
-    emailjs.send('service_3r5eb2d', 'template_u7a7dmu',
+    //service_3r5eb2d
+    emailjs.send(process.env.PORT_SERVICE, process.env.PORT_TEMPLATE,
       {
         from_name: form.name,
         to_name: "JavaScript Mastery",
@@ -38,7 +39,7 @@ const Contact = () => {
         to_email: "sujata@jsmastery.pro",
         message: form.message,
       },
-      'VnAPVcqVSMr18YC4W'
+      process.env.PORT_SECRET
     ).then(
       () => {
         setLoading(false);
